@@ -22,7 +22,7 @@ void	ft_sort_int_tab(int *tab, int size)
 		while (tab[i] > tab[j])
 		{
 			ft_putstr("inMwl\n");
-			if (tab[i] > tab[j + 1])
+			if (tab[i] > tab[j + 1] && tab[j] > tab[j + 1])
 			{
 				temp2 = tab[i];
 				tab[i] = tab[j + 1];
@@ -38,18 +38,7 @@ void	ft_sort_int_tab(int *tab, int size)
 		}
 	}
 }
-//			if (temp)
-//				ft_putstr("we temp\n");
-//			if (temp2)
-//				ft_putstr("t2\n");
-//			temp = tab[i];
-//			tab[i] = tab[j];
-//			tab[j] = temp;
-//			i++;
-//		i = 0;
-//		ft_putstr("__+1l\n");
-//		temp = tab[i];
-//		tab[i] = tab[j
+
 int		main()
 {
 	int size;
