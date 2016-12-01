@@ -1,0 +1,38 @@
+#include <unistd.h>
+
+void	ft_help(char a, char b, char c);
+void	ft_comb2(void);
+void	ft_putchar(char c)
+{
+	write (1, &c, 1);
+}
+
+void	ft_help(char a, char b, char c)
+{
+	ft_putchar(a);
+	ft_putchar(b);
+	ft_putchar(c);
+}
+
+int		main(void)
+{
+	ft_comb2();
+	return (0);
+}
+
+void ft_comb2(void)
+{
+	int h;
+	int i;
+	int j;
+	int k;
+
+	k = '0';
+	j = '0';
+	while (k < '9')
+	{
+		((j == k) ? k++ : j++);
+		ft_help(j, k, '\n');
+	}
+	write (1, "end\n", 4);
+}

@@ -1,0 +1,18 @@
+#include "juk3.h"
+
+int		main(int nb_arg, char **str)
+{
+	if (nb_arg > 1)
+	{
+		ft_putstr("we have input\n");
+		
+		while (str[i])
+		{
+			ft_putstr(str[i]);
+			ft_putchar(' ');
+			i++;
+		}
+		ft_putstr("\n fin \n");
+		return (0);
+	}
+}
