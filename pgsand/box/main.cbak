@@ -1,0 +1,23 @@
+#include "juk3.h"
+
+int		main()
+{
+	int i;
+//	int j;
+//	int temp;
+
+	i = 0;
+//	j = i + 1;
+	while (i < 5)
+	{
+		if (i > 1)
+		{
+			ft_putnbr(i);
+			ft_putstr("it happened\n");
+			i = 0;
+		}
+		ft_putnbr(i);
+		i++;
+	}
+	return (0);
+}
