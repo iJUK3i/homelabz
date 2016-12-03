@@ -10,9 +10,9 @@ OBJS= *.o
 MN= main.c
 BETA= a.out
 
-GCC= clang -Wall -Werror -Wextra
-RM= rm -f
-SRM= rm -rf
+GCC= gcc -Wall -Werror -Wextra
+RM= /bin/rm -f
+SRM= /bin/rm -rf
 AR= ar rcv
 IX= ranlib
 L= -L. -l
