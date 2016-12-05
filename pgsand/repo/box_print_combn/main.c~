@@ -56,6 +56,6 @@ void	ft_print_n(int n)
 
 int		main()
 {
-	ft_print_n(4);
+	ft_print_n(9);
 	return (0);
 }
