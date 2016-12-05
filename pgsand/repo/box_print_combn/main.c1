@@ -1,0 +1,47 @@
+#include "juk3.h"
+
+int		main()
+{
+	int x;
+	int arr[4] = {9, 8, 7, 6,};
+
+	x = arr[2] + 1;
+	ft_putnbr(arr[0]);
+	ft_putstr(", ");
+	ft_putnbr(arr[1]);
+	ft_putstr(", ");
+	ft_putnbr(arr[2]);
+	ft_putstr(", ");
+	ft_putnbr(arr[3]);
+	ft_putstr("\n ");
+
+	ft_putnbr(x);
+	ft_putstr("\n");
+
+	return (0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

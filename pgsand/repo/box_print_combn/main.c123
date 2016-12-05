@@ -1,0 +1,16 @@
+#include "juk3.h"
+
+void	ft_print_cn(int n)
+{
+	char?int arr[2] = {0, 1};
+
+	while (!((arr[0] == 8) && (arr[1] == 9)))
+	{
+		ft_putchar(arr[0]);
+		ft_putchar(arr[1]);
+		if (!((arr[0] == 8) && (arr[1] == 9)))
+			ft_putstr(", ");
+		arr[1]++;
+		if ((arr[1] = arr[1] % 10) == 
+
+	
