@@ -1,46 +1,60 @@
 #include "juk3.h"
 
-void	ft_sort_int(int *tab, int size);
-
 void	ft_sort_int(int *tab, int size)
 {
 	int i;
-	int j;
 	int temp;
 
 	i = 0;
-	j = i + 1;
-	while (tab[i] < tab[j])
+	while (i <= size - 1)
 	{
-		i++;
-		if (i == size)
-			break;
-	}
-	while (tab[i] > tab[size - 1])
-	{
-		if (tab[i] > tab[size - 1])
-		{
-			temp = tab[size - 1];
-			tab[size -1] = tab[i];
-			tab[i] = temp;
-		}
-		i = 0;
-	}
-}
+	//	(not sure)
+	//	{
+			if (tab[i] > tab[i + 1] && tab[i + 1] != '\0')
+			{
+				temp = tab[i];
+				tab[i] = tab[i + 1];
+				tab[i + 1] = temp;
+			}
+			else if (tab[i] < tab[i + 1]    
+			i++;
 
 int		main()
 {
-	int	arr[3];
-	arr[0] = 9001;
-	arr[1] = 760;
-	arr[2] = -5;
-	ft_sort_int(arr, 3);
+	int arr[7];
 
+	arr[0] = 42;
+	arr[1] = 27;
+	arr[2] = 0;
+	arr[3] = 9001;
+	arr[4] = -5;
+	arr[5] = 6;
+	arr[6] = 1;
+
+	ft_sort_int(arr, 7);
+
+	ft_putstr("\nascending order: ");
 	ft_putnbr(arr[0]);
-	ft_putchar('\n');
+	ft_putstr(", ");
 	ft_putnbr(arr[1]);
-	ft_putchar('\n');
+	ft_putstr(", ");
 	ft_putnbr(arr[2]);
-	ft_putchar('\n');
+	ft_putstr(", ");
+	ft_putnbr(arr[3]);
+	ft_putstr(", ");
+	ft_putnbr(arr[4]);
+	ft_putstr(", ");
+	ft_putnbr(arr[5]);
+	ft_putstr(", ");
+	ft_putnbr(arr[6]);
+	ft_putstr(" \n");
+	ft_putstr(" \n");
 	return (0);
 }
+
+/*
+		ft_putnbr(tab[0]);
+		ft_putstr(" ");
+		ft_putnbr(tab[1]);
+		ft_putstr("\n");
+*/
