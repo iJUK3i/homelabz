@@ -5,12 +5,13 @@ void	ft_putnbr(int nb);
 
 int		main()
 {
-	ft_putchar('\n');
 	ft_putnbr(-28);
 	write (1, "\n", 1);
 	ft_putnbr(-209875);
 	ft_putchar('\n');
 	ft_putnbr(-123453458);
+	ft_putchar('\n');
+	ft_putnbr(923453458);
 	ft_putchar('\n');
 	return (0);
 }

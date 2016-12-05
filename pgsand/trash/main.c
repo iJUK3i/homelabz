@@ -1,72 +1,43 @@
 #include "juk3.h"
 
-char	*ft_strrev(char *str)
+int		ft_atoi(char *str)
 {
-//	char	*end;
-	char	*rev;
+	int i;
+	int nb;
+	int neg;
 
-	if (!str || !*str)
-		ft_putstr("no null data thats lazy");
-	rev = str;
-	while (*rev)
-		rev++;
-	rev--;
-	ft_putstr("start w l");
-	while (*rev)
+	i = 0;
+	nb = 0;
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' ||
+		str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
+		i++;
+	if (str[i] == 45)
+		neg = 1;
+	if (str[i] == 45 || str[i] == 43)
+		i++;
+	while (str[i] >= 48 && str[i] <= 57)
 	{
-//		end = rev;
-		write (1, rev, 1);
-//		end[i] = rev[j];
-		rev--;
-//		end++;
-//		i++;
+		nb *= 10;
+		nb += ((int)str[i] - 48);
+		i++;
 	}
-	ft_putchar('\n');
-	ft_putstr(str);
-	ft_putstr("a w l");
-	ft_putchar('\n');
-//	end[i + 1] = '\0';
-	ft_putchar('\n');
-	ft_putstr("above");
-//	return (end);
-	return (str);
+	if (neg == 1)
+		return (-nb);
+	else
+		return (nb);
 }
 
-int		main()
+int		main(int argc, char **str)
 {
-	char *str2;
-	char *str;
+	int a;
 
-	str2 = "this is back to the main";
-	str = "remain calm and keep coding!";
-	ft_strrev(str);
-	ft_putstr(str2);
-	ft_putstr(str);
+	a = ft_atoi(str[1]);
+	if (argc > 1)
+	{
+		ft_putnbr(a);
+		ft_putchar('\n');
+	}
+	
 	return (0);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

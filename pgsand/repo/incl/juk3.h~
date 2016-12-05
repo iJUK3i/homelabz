@@ -47,6 +47,6 @@ void	ft_swap(char *a, char *b);
 char	*ft_strrev(char *str);
 void	ft_putnbr(int nb);
 int		ft_iter_fact(int nb);
-void	ft_swap_int(int *src, int *dst);
+void	ft_swap_int(int src, int dst);
 
 #endif
