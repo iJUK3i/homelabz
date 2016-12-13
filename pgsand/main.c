@@ -6,7 +6,7 @@
 /*   juk3 <admin@rejects.com>                $$ |__$$ |$$____$$ |$$ |__$$ |   */
 /*                                           $$    $$ | /    $$/ $$    $$<    */
 /*   Created: 2016/12/12 05:55:02            $$$$$$$$ |/$$$$$$/  $$$$$$$  |   */
-/*   Updated: 2016/12/13 06:14:21                  $$ |$$ |_____ $$ |  $$ |   */
+/*   Updated: 2016/12/13 08:32:37                  $$ |$$ |_____ $$ |  $$ |   */
 /*   Update by: juk3                               $$ |$$       |$$ |  $$ |   */
 /*                                                 $$/ $$$$$$$$/ $$/   $$/    */
 /*                                                                            */
@@ -22,6 +22,7 @@ int place_queen(char chess_board[8][8], int i, int j, int flag);
 int alt_place_queen(char chess_board[8][8], int i, int j, int flag);
 void help_place(int i, int j);
 int	put_queen(char chess_board[8][8], int i, int j, int flag);
+void valid_board(char chess_board[8][8], int i, int j, int flag);
 
 /*
 struct		prev_board
@@ -36,15 +37,9 @@ struct previous_board failed[] =
 {
 
 
-
-
-
-
-
-
-
-
 */
+
+
 
 void	help_place(int i, int j)
 {
@@ -76,7 +71,7 @@ void	help_me(char chess_board[8][8])
 }
 
 
-void	empty_board(int bak, int r, int c)
+void	empty_board()
 {
 	char chess_board[8][8];
 	int i;
@@ -95,22 +90,36 @@ void	empty_board(int bak, int r, int c)
 		}
 		i++;
 	}
-	if (i == 8 && j == 8)
-	{
-		i = 0;
-		j = 0;
-	}
-	if (bak > 0)
-	{
-		i = r;
-		j = c;
-	}
 
-	ft_putnbr(i);
-	ft_putnbr(j);
-	ft_putstr(" previous empty board \n");
-	place_queen(chess_board, i, j, flag);
+	ft_putstr(" you have empty board! \n");
+	valid_board(chess_board, 0, 0, flag);
 }
+
+void	valid_board(char chess_board[8][8], int i, int j, int flag)
+{
+	while (flag != 8)
+	{
+		while (chess_board[i][j])
+		{
+			place_queen(chess_board, i, j, flag);
+			j++;
+		}
+		i++;
+	}
+	if (flag == 8)
+	{
+		is_valid(chess_board);
+	}
+}
+
+void	is_valid(char chess_board[8][8])
+{
+	char *prev_board[8][8];
+	int x;
+
+	x = 0;
+	prev_board[x][8][8] = chess_board;
+
 
 
 
@@ -265,16 +274,15 @@ int		put_queen(char chess_board[8][8], int i, int j, int flag)
 
 int		place_queen(char chess_board[8][8], int i, int j, int flag)
 {
-	int bak;
 
-	bak = 0;
-	ft_putnbr(flag);
-	ft_putchar('\n');
-	while (i <= 7)
-	{
-		j = 0;
-		while (j <= 7)
-		{
+//	ft_putnbr(j);
+//	ft_putchar('\n');
+//	i = 0;
+//	while (i <= 7)
+//	{
+//		j = 0;
+//		while (j <= 7)
+//		{
 			if (row_check(chess_board, i) == 0)
 			{
 				if (col_check(chess_board, j) == 0)
@@ -282,21 +290,23 @@ int		place_queen(char chess_board[8][8], int i, int j, int flag)
 					if (diag_check(chess_board, i, j) == 0)
 					{
 						put_queen(chess_board, i, j, flag);
+						help_place(i, j);
 					}
 				}
 			}
-			j++;
-			help_me(chess_board);
-			ft_putchar('\n');
-		}
-		ft_putnbr(j);
-		ft_putstr(", \n");
-		if (flag != 8)
-			empty_board(++bak, r, ++c);
-		i++;
-	}
-	return (0);
+//			j++;
+//			help_me(chess_board);
+//			ft_putchar('\n');
+//			ft_putnbr(j);
+//			ft_putchar('\n');
+//		}
+//		i++;
+//	}
+//	if (flag != 8)
+//		empty_board(++bak, i, ++j);
+	return (flag);
 }
+
 
 //int		alt_place_queen(char chess_board[8][8], int i, int j, int flag)
 //{
