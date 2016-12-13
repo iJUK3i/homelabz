@@ -6,7 +6,7 @@
 /*   juk3 <admin@rejects.com>                $$ |__$$ |$$____$$ |$$ |__$$ |   */
 /*                                           $$    $$ | /    $$/ $$    $$<    */
 /*   Created: 2016/12/12 05:55:02            $$$$$$$$ |/$$$$$$/  $$$$$$$  |   */
-/*   Updated: 2016/12/13 08:32:37                  $$ |$$ |_____ $$ |  $$ |   */
+/*   Updated: 2016/12/13 09:12:40                  $$ |$$ |_____ $$ |  $$ |   */
 /*   Update by: juk3                               $$ |$$       |$$ |  $$ |   */
 /*                                                 $$/ $$$$$$$$/ $$/   $$/    */
 /*                                                                            */
@@ -14,23 +14,23 @@
 
 
 #include "juk3.h"
-void help_me(char chess_board[8][8]);
+void help_me(bool chess_board[8][8]);
 void empty_board(int bak, int r, int c);
-int	row_check(char chess_board[8][8], int i);
-int col_check(char chess_board[8][8], int j);
-int place_queen(char chess_board[8][8], int i, int j, int flag);
-int alt_place_queen(char chess_board[8][8], int i, int j, int flag);
+int	row_check(bool chess_board[8][8], int i);
+int col_check(bool chess_board[8][8], int j);
+int place_queen(bool chess_board[8][8], int i, int j, int q);
+int alt_place_queen(bool chess_board[8][8], int i, int j, int q);
 void help_place(int i, int j);
-int	put_queen(char chess_board[8][8], int i, int j, int flag);
-void valid_board(char chess_board[8][8], int i, int j, int flag);
+int	put_queen(bool chess_board[8][8], int i, int j, int q);
+void valid_board(bool chess_board[8][8], int i, int j, int q);
 
 /*
 struct		prev_board
 {
-	char chess_board[8][8];
+	bool chess_board[8][8];
 	int i;
 	int j;
-	int flag;
+	int q;
 };
 
 struct previous_board failed[] =
@@ -50,7 +50,7 @@ void	help_place(int i, int j)
 	ft_putchar('\n');
 }
 
-void	help_me(char chess_board[8][8])
+void	help_me(bool chess_board[8][8])
 {
 	int i;
 	int j;
@@ -73,13 +73,15 @@ void	help_me(char chess_board[8][8])
 
 void	empty_board()
 {
-	char chess_board[8][8];
-	int i;
-	int j;
-	int flag;
+	bool chess_board[8][8];
+//	int i;
+//	int j;
+//	int q;
 
-	flag = 0;
-	i = 0;
+	chess_board[8][8] = {{FALSE}};
+
+	q = 0;
+/*	i = 0;
 	while (i <= 7)
 	{
 		j = 0;
@@ -90,40 +92,35 @@ void	empty_board()
 		}
 		i++;
 	}
-
+*/
 	ft_putstr(" you have empty board! \n");
-	valid_board(chess_board, 0, 0, flag);
+	valid_board(chess_board, q);
 }
 
-void	valid_board(char chess_board[8][8], int i, int j, int flag)
+void	valid_board(bool chess_board[8][8], q)
 {
-	while (flag != 8)
+	while (q != 8)
 	{
-		while (chess_board[i][j])
+		while (i <= 7)
 		{
-			place_queen(chess_board, i, j, flag);
-			j++;
+			while (j <= 7)
+			{
+				place_queen(chess_board, i, j, q);
+				j++;
+			if 
 		}
 		i++;
 	}
-	if (flag == 8)
+	if (q == 8)
 	{
 		is_valid(chess_board);
 	}
 }
 
-void	is_valid(char chess_board[8][8])
-{
-	char *prev_board[8][8];
-	int x;
-
-	x = 0;
-	prev_board[x][8][8] = chess_board;
 
 
 
-
-int		row_check(char chess_board[8][8], int i)
+int		row_check(bool chess_board[8][8], int i)
 {
 	int j;
 	int queen;
@@ -132,14 +129,14 @@ int		row_check(char chess_board[8][8], int i)
 	j = 0;
 	while (j <= 7)
 	{
-		if (chess_board[i][j] == 'Q')
+		if (chess_board[i][j] == TRUE)
 			queen++;
 		j++;
 	}
 	return (queen);
 }
 
-int		col_check(char chess_board[8][8], int j)
+int		col_check(bool chess_board[8][8], int j)
 {
 	int i;
 	int queen;
@@ -148,16 +145,16 @@ int		col_check(char chess_board[8][8], int j)
 	i = 0;
 	while (i <= 7)
 	{
-		if (chess_board[i][j] == 'Q')
+		if (chess_board[i][j] == TRUE)
 			queen++;
 		i++;
 	}
 	return (queen);
 }
 
-int		is_queen(char chess_board[8][8], int i, int j)
+int		is_queen(bool chess_board[8][8], int i, int j)
 {
-	if (chess_board[i][j] == 'Q')
+	if (chess_board[i][j] == TRUE)
 		return 1;
 	else
 		return 0;
@@ -171,7 +168,7 @@ int		is_queen(char chess_board[8][8], int i, int j)
 // to right_bel: +1, +1
 // send the current position here and then do diag checks
 
-int		l_abv(char chess_board[8][8], int i, int j)
+int		l_abv(bool chess_board[8][8], int i, int j)
 {
 	int queen;
 
@@ -189,7 +186,7 @@ int		l_abv(char chess_board[8][8], int i, int j)
 	return (queen);
 }
 
-int		r_abv(char chess_board[8][8], int i, int j)
+int		r_abv(bool chess_board[8][8], int i, int j)
 {
 	int queen;
 
@@ -207,7 +204,7 @@ int		r_abv(char chess_board[8][8], int i, int j)
 	return (queen);
 }
 
-int		l_bel(char chess_board[8][8], int i, int j)
+int		l_bel(bool chess_board[8][8], int i, int j)
 {
 	int queen;
 
@@ -225,7 +222,7 @@ int		l_bel(char chess_board[8][8], int i, int j)
 	return (queen);
 }
 
-int		r_bel(char chess_board[8][8], int i, int j)
+int		r_bel(bool chess_board[8][8], int i, int j)
 {
 	int queen;
 
@@ -243,7 +240,7 @@ int		r_bel(char chess_board[8][8], int i, int j)
 	return (queen);
 }
 
-int		diag_check(char chess_board[8][8], int i, int j)
+int		diag_check(bool chess_board[8][8], int i, int j)
 {
 	if (l_abv(chess_board, i, j) != 0)
 		return 1;
@@ -261,18 +258,18 @@ int		diag_check(char chess_board[8][8], int i, int j)
 //       Place queen function starts here
 //       this calls to the check system and 
 //       then places a queen if all the checks come back 0
-//       0 meaning that it didn't find a 'Q'ueen on any part
+//       0 meaning that it didn't find a TRUEueen on any part
 //       of the board it checked
 
 
-int		put_queen(char chess_board[8][8], int i, int j, int flag)
+int		put_queen(bool chess_board[8][8], int i, int j, int q)
 {
-	chess_board[i][j] = 'Q';
-	flag++;
-	return (flag);
+	chess_board[i][j] = TRUE;
+	q++;
+	return (q);
 }
 
-int		place_queen(char chess_board[8][8], int i, int j, int flag)
+int		place_queen(bool chess_board[8][8], int i, int j, int q)
 {
 
 //	ft_putnbr(j);
@@ -283,13 +280,13 @@ int		place_queen(char chess_board[8][8], int i, int j, int flag)
 //		j = 0;
 //		while (j <= 7)
 //		{
-			if (row_check(chess_board, i) == 0)
+			if (row_check(chess_board, i) == FALSE)
 			{
-				if (col_check(chess_board, j) == 0)
+				if (col_check(chess_board, j) == FALSE)
 				{
-					if (diag_check(chess_board, i, j) == 0)
+					if (diag_check(chess_board, i, j) == FALSE)
 					{
-						put_queen(chess_board, i, j, flag);
+						put_queen(chess_board, i, j, q);
 						help_place(i, j);
 					}
 				}
@@ -300,15 +297,15 @@ int		place_queen(char chess_board[8][8], int i, int j, int flag)
 //			ft_putnbr(j);
 //			ft_putchar('\n');
 //		}
-//		i++;
+
 //	}
-//	if (flag != 8)
+//	if (q != 8)
 //		empty_board(++bak, i, ++j);
-	return (flag);
+	return (q);
 }
 
 
-//int		alt_place_queen(char chess_board[8][8], int i, int j, int flag)
+//int		alt_place_queen(bool chess_board[8][8], int i, int j, int q)
 //{
 
 
