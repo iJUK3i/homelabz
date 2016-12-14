@@ -6,7 +6,7 @@
 /*   juk3 <admin@rejects.com>                $$ |__$$ |$$____$$ |$$ |__$$ |   */
 /*                                           $$    $$ | /    $$/ $$    $$<    */
 /*   Created: 2016/12/14 02:44:37            $$$$$$$$ |/$$$$$$/  $$$$$$$  |   */
-/*   Updated: 2016/12/14 05:23:26                  $$ |$$ |_____ $$ |  $$ |   */
+/*   Updated: 2016/12/14 06:20:33                  $$ |$$ |_____ $$ |  $$ |   */
 /*   Update by: juk3                               $$ |$$       |$$ |  $$ |   */
 /*                                                 $$/ $$$$$$$$/ $$/   $$/    */
 /*                                                                            */
@@ -34,6 +34,7 @@ void	print_matrix(int board[8][8])
 	}
 }
 
+
 int is_marked(int board[8][8], int i)
 {
 	int j;
@@ -45,26 +46,34 @@ int is_marked(int board[8][8], int i)
 		{
 			break;
 		}
-		j++;
+		else
+		{
+			j++;
+		}
 	}
+	ft_putnbr(j);
 	ft_putstr(" this is debug \n");
 	return (j);
 }
 
+
 int check(int board[8][8], int row, int col)
 {
 	int be_row;
-	int be_empty;
+	int be_col;
+	int return_value;
 
+	return_value = 0;
 	be_row = 0;
 	while (be_row < 8)
 	{
-		be_empty = is_marked(board, be_row);
-		if (col == be_empty || abs(row - be_row) == abs(col - be_empty))
-			return (1);
-		be_row;
+		be_col = is_marked(board, be_row);
+		if (col != be_col && abs(row - be_row) != abs(col - be_col))
+			return_value = 1;
+		else
+			be_row++;
 	}
-	return 0;
+	return (return_value);
 }
 
 void nqueen(int board[8][8], int i)
@@ -114,7 +123,6 @@ int		main()
 		i++;
 	}
 
-	print_matrix(board);
 	nqueen(board, 0);
 	return(0);
 }
