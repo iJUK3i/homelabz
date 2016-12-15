@@ -1,0 +1,109 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                            __    __   ______   _______     */
+/*   main.c                                  /  |  /  | /      \ /       \    */
+/*                                           $$ |  $$ |/$$$$$$  |$$$$$$$  |   */
+/*   juk3 <admin@rejects.com>                $$ |__$$ |$$____$$ |$$ |__$$ |   */
+/*                                           $$    $$ | /    $$/ $$    $$<    */
+/*   Created: 2016/12/13 09:15:24            $$$$$$$$ |/$$$$$$/  $$$$$$$  |   */
+/*   Updated: 2016/12/14 02:44:07                  $$ |$$ |_____ $$ |  $$ |   */
+/*   Update by: juk3                               $$ |$$       |$$ |  $$ |   */
+/*                                                 $$/ $$$$$$$$/ $$/   $$/    */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "juk3.h"
+
+struct chess_board
+{
+	node *left;
+	node *right;
+};
+
+int		main()
+{
+	node *root_ptr;
+	*root_ptr = NULL;
+	insert(root_ptr, TRUE);
+	insert(root_ptr, FALSE);
+	insert(root_ptr, TRUE);
+	return (0);
+}
+
+chess_board make_new(bool chess_board[8][8])
+{
+	chess_board *new_board = (chess_board*)malloc(sizeof(chess_board));
+	new_board.data = data;
+}
+
+chess_board *insert(chess_board *root_ptr, bool data)
+{
+	if (root_ptr == NULL)
+	{
+		root_ptr = make_new(data);
+		return (root_ptr);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+int		main()
+{
+	solve_queen();
+	return (0);
+}
+
+void	empty_board()
+{
+	bool chess_board[8][8];
+
+	chess_board[8][8] = {{FALSE}};
+	ft_putstr(" you have an empty board! ");
+	first_queen(chess_board);
+}
+
+void	first_queen(bool chess_board[8][8], int i, int j)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

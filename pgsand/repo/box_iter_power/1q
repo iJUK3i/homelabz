@@ -1,0 +1,28 @@
+#include "juk3.h"
+
+int		ft_iter_power(int nb, int power)
+{
+	while (power > 0)
+	{
+		nb *= nb;
+		power--;
+	}
+	return (nb);
+
+}
+
+int		main(int nb_arg, char **input)
+{
+	int i;
+	int j;
+
+	if (nb_arg > 1)
+	{
+		i = ft_atoi(input[1]);
+		j = ft_atoi(input[2]);
+		ft_iter_power(i, j);
+	}
+	ft_putnbr(ft_iter_power(i, j));
+	return (0);
+}
+
