@@ -64,7 +64,7 @@ add:
 	$(IX) $(LIB)
 
 no: clean
-	$(ERR) $(MN) -I$(IDIR) $(L)$(LN)
+	$(CLANG) $(MN) -I$(IDIR) $(L)$(LN)
 
 beta: clean
 	$(GCC) $(MN) -I$(IDIR) $(L)$(LN)

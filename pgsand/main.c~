@@ -1,0 +1,46 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                            __    __   ______   _______     */
+/*   main.c                                  /  |  /  | /      \ /       \    */
+/*                                           $$ |  $$ |/$$$$$$  |$$$$$$$  |   */
+/*   juk3 <admin@rejects.com>                $$ |__$$ |$$____$$ |$$ |__$$ |   */
+/*                                           $$    $$ | /    $$/ $$    $$<    */
+/*   Created: 2016/12/14 07:31:56            $$$$$$$$ |/$$$$$$/  $$$$$$$  |   */
+/*   Updated: 2016/12/14 10:39:56                  $$ |$$ |_____ $$ |  $$ |   */
+/*   Update by: juk3                               $$ |$$       |$$ |  $$ |   */
+/*                                                 $$/ $$$$$$$$/ $$/   $$/    */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "juk3.h"
+
+int		main()
+{
+	char *dictionary[100];
+
+
+			dictionary[0] = "word";
+			dictionary[1] = "next";
+			dictionary[2] = "last";
+
+//		else if (i > 0)
+//			dictionary[0] = "wrong answer";
+//		ft_putstr(dictionary[0]);
+//		ft_putchar('\n');
+//		i++;
+
+	
+		
+	ft_putchar(dictionary[0][0]);
+	ft_putchar('\n');
+	ft_putchar(dictionary[0][1]);
+	ft_putchar('\n');	
+	ft_putchar(dictionary[0][2]);
+	ft_putchar('\n');	
+	ft_putchar(dictionary[0][3]);
+	ft_putchar('\n');
+	return (0);
+}
+
+ 		putnbr(i)
+	return i++:
